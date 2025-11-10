@@ -11,8 +11,9 @@
  * Leap years in the cycle: 2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29
  */
 
-// Hijri epoch: July 16, 622 CE (Julian Day Number)
-const HIJRI_EPOCH = 1948439; // Julian Day for 1 Muharram 1 AH
+// Hijri epoch: July 19, 622 CE (Gregorian) - Using Iranian convention to match Bahesab
+// This corresponds to Friday, 1 Muharram 1 AH
+const HIJRI_EPOCH = 1948440; // Julian Day Number for 1 Muharram 1 AH
 
 // 30-year cycle: leap years (1-indexed within each 30-year cycle)
 const LEAP_YEARS_IN_CYCLE = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29];
