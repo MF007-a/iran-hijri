@@ -1,0 +1,25 @@
+{
+  "name": "iran-hijri",
+  "version": "1.0.0",
+  "description": "Iranian Hijri calendar converter with official data support and tabular fallback",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hijri",
+    "islamic-calendar",
+    "jalaali",
+    "persian-calendar",
+    "gregorian",
+    "date-conversion",
+    "iran",
+    "calendar",
+    "hijri-converter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
