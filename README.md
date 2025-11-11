@@ -5,8 +5,10 @@ A JavaScript library for converting between Iranian (Jalaali/Persian), Gregorian
 ## Features
 
 - **Official Data Priority**: Uses precise, officially-sourced Hijri month lengths for Iranian dates when available
+- **Extended Data Range**: Includes 108 years of official data (Hijri 1340-1447 / Jalaali 1300-1405)
 - **Tabular Fallback**: Automatically falls back to tabular (arithmetic) Hijri calculations for dates outside the official range
 - **Bidirectional Conversions**: Convert between Jalaali ↔ Hijri and Gregorian ↔ Hijri
+- **Weekday Information**: Returns weekday names in Arabic, Persian, and English
 - **Flexible & Extensible**: Easily add or update official data without code changes
 - **Wide Range Support**: Handles Hijri years 1-5000 using the 30-year cycle tabular system
 - **Transparent**: Each conversion result indicates whether official data or tabular calculation was used
@@ -31,12 +33,12 @@ const { jalaaliToHijri, hijriToJalaali, gregorianToHijri, hijriToGregorian } = r
 // Convert Jalaali to Hijri
 const hijriDate = jalaaliToHijri(1403, 9, 15);
 console.log(hijriDate);
-// { hy: 1445, hm: 6, hd: 2, source: 'official' }
+// { hy: 1445, hm: 6, hd: 2, source: 'official', weekday: { ar: '...', fa: '...', en: 'Friday', number: 4 } }
 
 // Convert Hijri to Jalaali
 const jalaaliDate = hijriToJalaali(1445, 6, 2);
 console.log(jalaaliDate);
-// { jy: 1403, jm: 9, jd: 15, source: 'official' }
+// { jy: 1403, jm: 9, jd: 15, source: 'official', weekday: { ar: '...', fa: '...', en: 'Friday', number: 4 } }
 
 // Convert Gregorian to Hijri
 const hijriFromGregorian = gregorianToHijri(2024, 12, 5);
@@ -141,11 +143,28 @@ This mathematical approach provides reasonable approximations for historical and
 
 ## Current Official Data Range
 
-The library currently supports official data for:
-- **Hijri Years**: 1423/01 to 1448/10
-- **Jalaali Years**: 1381 to 1405 (approximately)
+The library includes comprehensive official data for:
+- **Hijri Years**: 1340/01 to 1447/12
+- **Jalaali Years**: Approximately 1300 to 1405
+- **Gregorian Years**: Approximately 1921 to 2026
+- **Total Coverage**: 108 years of precise Iranian Hijri calendar data
 
-You can extend this range by adding more data to `officialData.js`.
+Data was collected from [Bahesab.ir](https://www.bahesab.ir/), Iran's trusted calendar platform. See [`scripts/README.md`](scripts/README.md) for details on the data collection methodology.
+
+For dates outside this range, the library automatically uses the tabular (arithmetic) system.
+
+## Data Sources & Methodology
+
+This library uses **official Iranian Hijri calendar data** sourced from [Bahesab.ir](https://www.bahesab.ir/time/conversion/), which represents the actual observational practices and conventions used in Iran.
+
+### Data Collection
+
+The 108 years of official data (Hijri 1340-1447) were collected using an automated web scraper that:
+1. Converts the 1st day of each Hijri month to Jalaali dates
+2. Calculates month lengths by measuring the difference between consecutive months
+3. Validates all data for accuracy
+
+See the [`scripts/`](scripts/) directory for the complete data collection tool and methodology documentation.
 
 ## License
 
